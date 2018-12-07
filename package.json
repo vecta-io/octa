@@ -1,0 +1,19 @@
+{
+  "name": "octa-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vecta-io/octa.git"
+  },
+  "author": "Thomas Yip",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vecta-io/octa/issues"
+  },
+  "homepage": "https://github.com/vecta-io/octa#readme"
+}
