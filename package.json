@@ -10,10 +10,30 @@
     "type": "git",
     "url": "git+https://github.com/vecta-io/octa.git"
   },
-  "author": "Thomas Yip",
+  "author": {
+    "name": "Thomas Yip",
+    "email": "thomas@vecta.io",
+    "url": "https://vecta.io"
+  },
+  "bin": {
+    "octa": "bin/octa.js"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vecta-io/octa/issues"
   },
-  "homepage": "https://github.com/vecta-io/octa#readme"
+  "homepage": "https://github.com/vecta-io/octa#readme",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "ejs": "^2.6.1",
+    "escape-html": "^1.0.3",
+    "frontmatter": "0.0.3",
+    "fs-extra": "^7.0.1",
+    "glob-promise": "^3.4.0",
+    "less": "^3.9.0",
+    "moment": "^2.22.2",
+    "showdown": "^1.9.0",
+    "striptags": "^3.1.1",
+    "title-case-minors": "^1.0.0"
+  }
 }
