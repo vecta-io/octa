@@ -1,11 +1,8 @@
 {
-  "name": "octa-cli",
+  "name": "octa",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vecta-io/octa.git"
@@ -22,6 +19,12 @@
   "bugs": {
     "url": "https://github.com/vecta-io/octa/issues"
   },
+  "maintainers": [
+    {
+      "name": "Neel Singh",
+      "email": "neel@vecta.io"
+    }
+  ],
   "homepage": "https://github.com/vecta-io/octa#readme",
   "dependencies": {
     "crypto": "^1.0.1",
