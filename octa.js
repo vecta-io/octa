@@ -1,6 +1,7 @@
 "use strict";
 
-var _fs = require('fs-extra'),
+var cwd = process.cwd(),
+    _fs = require('fs-extra'),
     _path = require('path'),
     _front = require('frontmatter'),
     _ejs = require('ejs'),
@@ -10,20 +11,18 @@ var _fs = require('fs-extra'),
     _glob = require('glob-promise'),
     _crypto = require('crypto'),
     _helper = require('./helper'),
-    _tags = require('./tags'),
-    cwd = cwd || process.cwd();
+    _tags = require('./tags');
 
 switch (process.argv[2]) {
     //initialize a folder
-    case 'hello': console.log(cwd); break;
-    case 'init': initFolder(_path.resolve(cwd, process.argv[3])); break;
+    case 'init': process.argv[3] ? initFolder(_path.resolve(cwd, process.argv[3])) : console.log('Please provide directory name.') ; break;
     case 'gen': genFolder(process.argv[3] || cwd); break;
     case 'new': newDraft(process.argv); break;
     case 'publish': publish(_path.resolve(cwd, process.argv[3]), process.argv[4]); break;
     case 'slug': renameSlug(process.argv[3], process.argv[4], process.argv[5]); break;
     case '--help': case undefined:
         status('Commands:');
-        status(' octa init <name>\t\t\tCreate a new website');
+        status(' octa init <name>\t\t\tCreate a new site.');
         status(' octa new [draft|post] <title>\t\tCreate a new article either draft or post. Defaults to draft.');
         status(' octa gen\t\t\t\tGenerate static files for the website');
         status(' octa publish <filename>\t\tPublish a draft');
@@ -279,7 +278,7 @@ function genFolder(folder, config) {
                 }).then(function (str) {
                     return _fs.ensureDir(_path.join(folder, 'tags/' + _helper.slugify(tag))).then(function () {
                         //write to local tag tmp directory
-                        return _fs.writeFile(_path.join(folder, 'tags/' + _helper.slugify(tag) + '/index.' + config.extension), str);
+                        return _fs.writeFile(_path.join(folder, 'tags/' + _helper.slugify(tag) + '/index' + config.extension), str);
                     });
                 }));
             });
@@ -302,7 +301,7 @@ function genFolder(folder, config) {
             if (!exists) { path = _path.join(cwd, '/_theme/_index.ejs')}
 
             return _ejs.renderFile(path, {config: config, site: site, helper: _helper}).then(function (str) {
-                return syncFile(str, _path.join(config.output, 'index.' + config.extension));
+                return syncFile(str, _path.join(config.output, 'index' + config.extension));
             });
         });
     }
@@ -456,7 +455,7 @@ Post.prototype = new function () {
                 if (!exists) { path = _path.join(cwd, '/_theme/_post.ejs'); }
 
                 return _ejs.renderFile(path, {data: post, site: site, helper: _helper})
-                    .then(function (str) { return syncFile(str, _path.join(post.output, 'index.' + config.extension)); });
+                    .then(function (str) { return syncFile(str, _path.join(post.output, 'index' + config.extension)); });
             });
 
             function getTags(content) {
@@ -780,7 +779,7 @@ function initFolder(folder) {
         if (!exists) {
             _fs.outputJSON(_path.join(folder, '_config.json'), {
                 title: 'Untitled',
-                sub_title: 'Untitled',
+                subtitle: 'Untitled',
                 root: _path.basename(folder),
                 output: folder.split(/\/|\\/g).pop()
             }, {spaces: 4});
