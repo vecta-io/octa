@@ -1,7 +1,7 @@
 ![octa-logo](https://user-images.githubusercontent.com/32937442/49627794-ce7a9080-fa1b-11e8-9ec2-a6fb5899ee8a.png) 
 # Octa
 
-Fast, smooth, reliable site generator framework by team at [vecta.io](https\\:vecta.io)
+Fast, smooth, reliable site generator framework by team at [vecta.io](https://vecta.io)
 
 ## Benefits
 
