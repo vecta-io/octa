@@ -78,3 +78,7 @@ This will setup a site folder with the bare minimum.
 ## Configuration
 
 In octa folder, there is a global _config.json, which holds settings for all sites. Each site folder has it's own _config.json file, which supercede the global settings.
+
+## Copyright
+
+© Radica Software 2022, All Rights Reserved.
